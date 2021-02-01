@@ -5,16 +5,16 @@
 
 Are you running Kubernetes in your homelab or in the enterprise?  
 Do you want an easy way to manage and create Kubernetes clusters?  
-Join me as we walk through stalling Rancher on an existing high availability k3s cluster in this step-by-step tutorial.  
+Join me as we walk through istalling Rancher on an existing high availability k3s cluster in this step-by-step tutorial.  
 
-We install Rancher, configure a load balancer, install and configure helm, install cert-manager, configure Rancher, walk through the GUI, scale up our cluster, and set up a health check and liveness check!   Join me, it's easy in this straightforward guide.
+We install Rancher, configure a load balancer, install and configure helm, install cert-manager, configure Rancher, walk through the GUI, scale up our cluster, and set up a health check and liveness check! Join me, it's easy in this straightforward guide.
 
 https://www.youtube.com/watch?v=APsZJbnluXg
 
 
 ## install
 
-**Note:** If you plan on installing rancher in your cluser, the current stabe release (v2.5.5) does not support Kubernetes v1.20.
+**Note:** If you plan on installing rancher in your clutser, the current stable release (v2.5.5) does not support Kubernetes v1.20.
 It's advised you consult the [Rancher Support Matrix](https://rancher.com/support-maintenance-terms/all-supported-versions)
 to get the recommended version for all Rancher dependencies.
 
@@ -79,7 +79,7 @@ install `cert-manager` helm chart
 
 
 *Note: If you receive an "Error: Kubernetes cluster unreachable" message when install cert-manager, try copying
-the contents of "/etc/rancher/k3s/k3s.yam" to "~/.kube/config" to resolve the issue.*
+the contents of "/etc/rancher/k3s/k3s.yaml" to "~/.kube/config" to resolve the issue.*
 ```
 helm install \
   cert-manager jetstack/cert-manager \
@@ -95,12 +95,12 @@ check rollout of cert-manager
 kubectl get pods --namespace cert-manager
 ```
 
-be sure each pod is fully running before proceeding
+Be sure each pod is fully running before proceeding
 
 
-install rancher with helm
+Install Rancher with Helm
 
-*Note:If you have ".local" for your private TLD then rancer will NOT finish setup on the webUI*
+*Note:If you have ".local" for your private TLD then Rancher will NOT finish the setup within the webUI*
 ```
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
